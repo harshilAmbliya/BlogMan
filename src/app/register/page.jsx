@@ -23,9 +23,9 @@ const RegistrationForm = () => {
     })
     // Handle form submission logic here
     // const userInfo = await response;
-    console.log(response)
     router.push('/login')
     if (userInfo) {
+      console.log(response)
 
     }
   };

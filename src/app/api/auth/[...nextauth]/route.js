@@ -1,7 +1,7 @@
 import prisma from "@/libs/prismadb";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth from "next-auth/next";
-import { CredentialsProvider } from "next-auth/providers/credentials";
+import Credentials from "next-auth/providers/credentials";
 
 
 export const authOptions = {
@@ -10,7 +10,7 @@ export const authOptions = {
         stratrgy: 'jwt'
     },
     providers: [
-        CredentialsProvider({
+        Credentials({
             name: 'credentials',
             Credential: {
                 username: { label: "Username", type: "text", placeholder: "jsmith" },
