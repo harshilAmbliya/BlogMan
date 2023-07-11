@@ -1,0 +1,28 @@
+[
+    {
+        "name": "harshil",
+        "email": "harshil@gmail.com",
+        "password": "123456789",
+        "blog": {
+            "title": "javascript",
+            "body": "javascript is very famous language..",
+            "slug": "js data",
+            "comments": {
+                "comment": "hello ths is javascript comment"
+            }
+        }
+    },
+    {
+        "name":"harshil",
+        "email":"harshil15@gmail.com",
+        "password":"123456789",
+        "blog":{
+            "title":"php",
+            "body":"php is very famous language..",
+            "slug":"php data",
+            "comments":{
+              "comment":"hello ths is php comment"
+            }
+        }
+      }
+]
