@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next-auth/prisma-adapter": "^0.4.4-canary.81",
     "@prisma/client": "^4.16.2",
     "autoprefixer": "10.4.14",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "next": "13.4.9",
+    "next-auth": "^4.22.1",
     "postcss": "8.4.25",
     "react": "18.2.0",
     "react-dom": "18.2.0",

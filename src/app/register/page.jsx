@@ -1,7 +1,8 @@
 'use client'
 import React, { useState } from 'react';
-
+import { useRouter } from 'next/navigation';
 const RegistrationForm = () => {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -13,10 +14,20 @@ const RegistrationForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
+    const response = await fetch('api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ formData })
+    })
     // Handle form submission logic here
+    // const userInfo = await response;
+    console.log(response)
+    router.push('/login')
+    if (userInfo) {
+
+    }
   };
 
   return (
