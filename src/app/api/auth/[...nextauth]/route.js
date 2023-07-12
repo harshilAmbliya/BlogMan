@@ -9,6 +9,10 @@ export const authOptions = {
     session: {
         stratrgy: 'jwt'
     },
+    pages:{
+        logIn:"/login",
+        signIn: "/register",
+    },
     providers: [
         Credentials({
             name: 'credentials',
@@ -39,7 +43,18 @@ export const authOptions = {
         })
 
     ], secert: process.env.NEXTAUTH_SECRET,
-    debug: process.env.NODE_ENV === "development",
+    // debug: process.env.NODE_ENV !== "production",
+    logger: {
+        error(code, metadata) {
+          log.error(code, metadata)
+        },
+        warn(code) {
+          log.warn(code)
+        },
+        debug(code, metadata) {
+          log.debug(code, metadata)
+        }
+      }
 }
 
 

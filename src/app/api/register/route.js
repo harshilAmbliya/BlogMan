@@ -3,10 +3,11 @@ import { NextResponse } from "next/server";
 
 export const POST = async (req, res) => {
     const body = await req.json();
-    const { firstName, lastName, email, password } = body.formData
+    // console.log(req)
+    const { name, email, password } = body
     console.log(body)
 
-    if (!firstName || !lastName || !email || !password) {
+    if (!name  || !email || !password) {
         return new NextResponse.json({ status: 400 }, { error: "missing required" })
     }
 
@@ -22,8 +23,7 @@ export const POST = async (req, res) => {
 
     const user = await prisma.user.create({
         data: {
-            firstName,
-            lastName,
+            name,
             email,
             password
         }

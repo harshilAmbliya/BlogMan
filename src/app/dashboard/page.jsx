@@ -2,10 +2,16 @@
 import React from 'react'
 import { useSession } from 'next-auth/react'
 const Dashboard = () => {
-    const { data: session, status } = useSession();
+    const { session, status } = useSession();
     console.log(session, status)
     return (
-        <div>Dashboard</div>
+        <div>
+            <div className="">dashboard</div>
+            {<p>{JSON.stringify(session)}</p>}
+            {<p>{status}</p>}
+
+        </div>
+
     )
 }
 

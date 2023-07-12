@@ -4,8 +4,7 @@ import { useRouter } from 'next/navigation';
 const RegistrationForm = () => {
   const router = useRouter()
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     password: '',
   });
@@ -18,51 +17,37 @@ const RegistrationForm = () => {
     e.preventDefault();
     const response = await fetch('api/register', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ formData })
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
     })
-    // Handle form submission logic here
-    // const userInfo = await response;
-    router.push('/login')
-    if (userInfo) {
-      console.log(response)
-
+    console.log(response)
+    if (response.ok) {
+      router.push('/login')
     }
+
   };
 
   return (
     <div className="max-w-md mx-auto mt-10">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
-            First Name
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+            Name
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="firstName"
+            id="name"
             type="text"
-            name="firstName"
-            value={formData.firstName}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             placeholder="First Name"
             required
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="lastName">
-            Last Name
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="lastName"
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            placeholder="Last Name"
-            required
-          />
-        </div>
+
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
             Email

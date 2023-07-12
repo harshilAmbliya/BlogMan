@@ -15,8 +15,10 @@ const LoginForm = () => {
 
     const handlelogin = async (e) => {
         e.preventDefault();
+        console.log(data)
         signIn('credentials', {
-            redirect: false, ...data
+            data,
+            redirect: false, 
         })
         router.push('/dashboard')
     };
